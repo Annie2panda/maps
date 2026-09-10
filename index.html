@@ -17,14 +17,20 @@
         <div class="container nav-container">
             <a href="#" class="logo-area">
                 <div class="logo-icon">
-                    <i class="fa-solid => fa-globe"></i>
+                    <i class="fa-solid fa-globe"></i>
                 </div>
                 <div class="logo-text">
                     <span class="brand-title">MAPS</span>
                     <span class="brand-sub">Migrant Assistance Program & Settlement</span>
                 </div>
             </a>
-            <nav class="nav-menu">
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
                 <a href="#about" class="nav-link">About Us</a>
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#events" class="nav-link">Events</a>
@@ -36,7 +42,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="about">
         <div class="container hero-container">
             <div class="hero-content">
                 <span class="badge">Welcoming & Support Center</span>
@@ -199,7 +205,6 @@
                     <div class="total-badge">
                         <span class="total-label">Total Campaign Budget</span>
                         <span class="total-amount">$33,000</span>
-                        
                     </div>
                 </div>
 
@@ -375,6 +380,36 @@
             </div>
         </div>
     </footer>
+
+    <!-- Simple JS for Mobile Menu Toggle -->
+    <script>
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        toggleBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = toggleBtn.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link, .nav-btn').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = toggleBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
