@@ -23,7 +23,7 @@
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden; /* 防止横向溢出 */
+    overflow-x: hidden;
 }
 
 html {
@@ -147,17 +147,11 @@ a {
     max-width: calc(100% - 60px);
 }
 
-.logo-icon {
-    width: 38px;
-    height: 38px;
-    flex-shrink: 0;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
+.brand-logo-img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .logo-text {
@@ -208,7 +202,7 @@ a {
     color: var(--secondary);
 }
 
-/* Hero Section */
+/* Hero Section (About Us) */
 .hero {
     background: linear-gradient(180deg, #EDF2F7 0%, var(--bg-light) 100%);
     padding: 60px 0 40px 0;
@@ -219,6 +213,23 @@ a {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+/* About Us 区域的 Logo 展示框样式 */
+.hero-logo-box {
+    margin-bottom: 24px;
+    background: var(--white);
+    padding: 16px 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    display: inline-block;
+}
+
+.hero-logo-img {
+    height: 300px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .badge {
@@ -594,7 +605,7 @@ a {
 
 .budget-meta {
     flex-grow: 1;
-    min-width: 0; /* 防止子元素挤爆宽 */
+    min-width: 0;
 }
 
 .budget-meta h4 {
@@ -719,6 +730,22 @@ a {
     padding-bottom: 30px;
 }
 
+/* Footer 里的 Logo 样式 */
+.footer-logo-area {
+    margin-bottom: 12px;
+    background: var(--white);
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.footer-logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
 .footer-col h4 {
     color: var(--white);
     font-size: 1rem;
@@ -756,9 +783,7 @@ a {
     color: #A0AEC0;
 }
 
-/* -------------------------------------------
-   RESPONSIVE / MOBILE MEDIA QUERIES (@media)
-------------------------------------------- */
+/* Responsive */
 @media (max-width: 992px) {
     .hero-title {
         font-size: 2.25rem;
@@ -766,13 +791,12 @@ a {
 }
 
 @media (max-width: 768px) {
-    /* 导航栏变手机折叠式 */
     .mobile-menu-toggle {
         display: block;
     }
 
     .nav-menu {
-        display: none; /* 默认隐藏 */
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 70px;
@@ -794,18 +818,15 @@ a {
         text-align: center;
     }
 
-    /* 服务板块 */
     .wide-card {
         grid-column: span 1;
     }
 
-    /* 活动板块 */
     .event-main {
         grid-template-columns: 1fr;
         padding: 20px;
     }
 
-    /* 页脚 */
     .footer-container {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -847,7 +868,6 @@ a {
         font-size: 1.4rem;
     }
 
-    /* 组织架构图在手机端微调 */
     .org-line-h {
         display: none;
     }
